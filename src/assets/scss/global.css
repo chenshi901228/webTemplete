@@ -1,0 +1,18 @@
+
+.flex {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text-overflow {
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;			
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+	-webkit-line-clamp: 1;
+	line-clamp: 1;		
+}

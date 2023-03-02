@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=0.5, user-scalable=no,user-scalable=yes">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <script>
+    window.SITE_CONFIG = {};
+  </script>
+  <!-- 开发环境 -->
+  <% if (process.env.VUE_APP_NODE_ENV === 'dev') { %>
+  <script>
+    window.SITE_CONFIG['apiURL'] = 'http://192.168.250.65:8086';
+    window.SITE_CONFIG['ENV'] = "dev"
+  </script>
+  <% } %>
+  <!-- 集成测试环境 -->
+  <% if (process.env.VUE_APP_NODE_ENV === 'prod:sit') { %>
+  <script>
+    window.SITE_CONFIG['apiURL'] = 'https://zhibo-test.dayuzhongxue.com';
+    window.SITE_CONFIG['ENV'] = "prod:sit"
+  </script>
+  <% } %>
+  <!-- 验收测试环境 -->
+  <% if (process.env.VUE_APP_NODE_ENV === 'prod:uat') { %>
+  <script>
+    window.SITE_CONFIG['apiURL'] = ' http://192.168.250.195:28080';
+    indow.SITE_CONFIG['ENV'] = "prod:uat"
+  </script>
+  <% } %>
+  <!-- 生产环境 -->
+  <% if (process.env.VUE_APP_NODE_ENV === 'prod') { %>
+  <script>
+    window.SITE_CONFIG['apiURL'] = 'https://zhibo.dayuzhongxue.com';
+    indow.SITE_CONFIG['ENV'] = "prod"
+  </script>
+  <% } %>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+      Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
